@@ -1,3 +1,100 @@
-body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+body, html {
+  background-color: #efece6;
+  min-height: 100vh;
+  margin: 0;
+}
+
+* {
+  font-family: Open Sans;
+}
+
+nav {
+  overflow: hidden;
+  background-color: #ebc27e;
+  height: 100px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 4px 20px -2px #A2AEBB;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 700;
+  color: rgb(48, 44, 44);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  background-color: rgb(254, 254, 254);
+  width: 30vw;
+  height: 30vh;
+  font-size: 1.8em;
+  font-weight: 500;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.all-bookings{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 40px;
+  background-color: rgb(166, 191, 213);
+  width: 65vw;
+  height: 80vh;
+  font-size: 30px;
+  overflow: hidden;
+}
+
+.all-reservations {
+  display: flex;
+}
+
+.reservation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5vh;
+  width: 300px;
+  border-radius: 12px;
+}
+
+.reservation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50px;
+  font-weight: 800;
+  color:#393020
+}
+
+.booking-info {
+  display: flex;
+  text-align:center;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  height: 125px;
+  width: 200px;
+  border-radius: 40px;
 }

@@ -2,15 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> The Hotel Jonesy </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <meta name="description" content="Recipes for everyone's taste!"/>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
+  <header>
+    <nav>
+      <p class="user-greeting">Welcome, New User</p>
+      <h1 tabindex="0"> The Hotel Jonesy</h1>
+      <p class="total-spent"> Total Spent: $0.00</p>
+    </nav>
+  </header>
+  <main>
+    <aside class="book-here">
+      <h3>Book Here</h3> 
+      <form class="input-date" required>
+        <label class="input-date">Select A Date</label>
+        <input type="text" placeholder="MM/DD/YY" class="budget-input-box" id="budget-input" name="budget-input" required>
+        <input type="submit" class="submit" value="Submit">
+      </form>
+      <form class="input-room" required>
+        <label class="input-room">Select A Date</label>
+        <input type="text" placeholder="Room Type" class="budget-input-box" id="budget-input" name="budget-input" required>
+        <input type="submit" class="submit" value="Submit">
+      </form>
+    </aside>
+    <article class="all-bookings">
+      <h2>All Bookings</h2>
+      <div class="all-reservations">
+         <div class="reservation-wrapper">
+        <div class="reservation-card">
+          <p>6/27</p>
+          <div class="booking-info">
+            <p>Booking Date: 06/27/23</p> 
+            <p>Room Type: Single Room</p>
+          </div>
+        </div>
+      </div>
+      <div class="reservation-wrapper">
+        <div class="reservation-card">
+          <p>7/04</p>
+          <div class="booking-info">
+            <p>Booking Date: 07/04/23</p> 
+            <p>Room Type: Double Room</p>
+          </div>
+        </div>
+      </div>
+      <div class="reservation-wrapper">
+        <div class="reservation-card">
+          <p>8/22</p>
+          <div class="booking-info">
+            <p>Booking Date: 08/22/23</p> 
+            <p>Room Type: Double Room</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </article>
+  </main>
 </body>
+<script src="bundle.js"></script>
+
 </html>
