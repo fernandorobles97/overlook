@@ -62,7 +62,23 @@ const rooms1 = [
     "bedSize": "queen",
     "numBeds": 2,
     "costPerNight": 340.17
-  }
+  },
+  {
+    "number": 12,
+    "roomType": "single room",
+    "bidet": false,
+    "bedSize": "twin",
+    "numBeds": 2,
+    "costPerNight": 172.09
+},
+  {
+    "number": 15,
+    "roomType": "residential suite",
+    "bidet": false,
+    "bedSize": "full",
+    "numBeds": 1,
+    "costPerNight": 294.56
+}
 ];
 
 const bookings1 = [
