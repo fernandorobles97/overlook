@@ -46,7 +46,7 @@ const rooms1 = [
     "bedSize": "king",
     "numBeds": 1,
     "costPerNight": 491.14
-},
+    },
   {
     "number": 4,
     "roomType": "single room",
@@ -70,7 +70,7 @@ const rooms1 = [
     "bedSize": "twin",
     "numBeds": 2,
     "costPerNight": 172.09
-},
+  },
   {
     "number": 15,
     "roomType": "residential suite",
@@ -78,7 +78,15 @@ const rooms1 = [
     "bedSize": "full",
     "numBeds": 1,
     "costPerNight": 294.56
-}
+  },
+  {
+    "number": 23,
+    "roomType": "residential suite",
+    "bidet": false,
+    "bedSize": "queen",
+    "numBeds": 2,
+    "costPerNight": 176.36
+  }
 ];
 
 const bookings1 = [
@@ -117,7 +125,13 @@ const bookings1 = [
     "userID": 1,
     "date": "2023/12/22",
     "roomNumber": 15
-}
+  },
+  {
+    "id": "5fwrgu4i7k55hl8dq",
+    "userID": 36,
+    "date": "2022/04/22",
+    "roomNumber": 23
+  }
 ];
 
 export {

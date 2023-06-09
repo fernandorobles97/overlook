@@ -21,7 +21,21 @@ const findTotalSpent = (user, bookings, rooms) => {
   return 0;
 };
 
+const findAvailableRooms = (bookings, rooms, date) => {
+  let unavailableRooms = bookings.reduce((roomNumbers, booking) => {
+    if(booking.date === date) {
+      roomNumbers.push(booking.roomNumber)
+    }
+    return roomNumbers;
+  }, []);
+  if(!unavailableRooms.length) {
+    return "No Rooms available";
+  };
+  return rooms.filter(room => !unavailableRooms.includes(room.number));
+};
+
 export {
   findBookings,
-  findTotalSpent
+  findTotalSpent,
+  findAvailableRooms
 }

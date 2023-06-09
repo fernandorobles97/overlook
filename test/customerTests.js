@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { findBookings, findTotalSpent } from '../src/customerUtils';
+import { findAvailableRooms, findBookings, findTotalSpent } from '../src/customerUtils';
 import { bookings1, rooms1 } from '../test/sampleData.js';
 
 describe('findBookings', () => {
@@ -40,5 +40,23 @@ describe('findTotalSpent', () => {
     const newTotalSpent = findTotalSpent(currentUser1, bookings1, rooms1);
     
     expect(newTotalSpent).to.equal(0);
+  });
+});
+
+describe('findAvailableRooms', () => {
+  it('should be a function', () => {
+    expect(findAvailableRooms).to.be.a('function');
+  });
+
+  it('should return an array of available rooms for the date passed in', () => {
+    const availableRooms = findAvailableRooms(bookings1, rooms1, '2022/04/22');
+
+    expect(availableRooms.length).to.equal(6);
+  });
+
+  it('should return "No Rooms available" if none are found', () => {
+    const noAvailableRooms = findAvailableRooms(bookings1, rooms1, "2023/06/28");
+
+    expect(noAvailableRooms).to.equal("No Rooms available");
   });
 });
