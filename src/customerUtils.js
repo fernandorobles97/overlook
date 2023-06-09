@@ -29,13 +29,22 @@ const findAvailableRooms = (bookings, rooms, date) => {
     return roomNumbers;
   }, []);
   if(!unavailableRooms.length) {
-    return "No Rooms available";
+    return "No Rooms Available";
   };
   return rooms.filter(room => !unavailableRooms.includes(room.number));
+};
+
+const filterByRoomType = (rooms, type) => {
+  let availableRooms = rooms.filter(room => room.roomType === type);
+  if(!availableRooms.length) {
+    return "No Rooms Available For This Type";
+  }
+  return availableRooms;
 };
 
 export {
   findBookings,
   findTotalSpent,
-  findAvailableRooms
+  findAvailableRooms,
+  filterByRoomType
 }
