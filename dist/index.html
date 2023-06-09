@@ -20,15 +20,21 @@
   </header>
   <main>
     <aside class="book-here">
-      <h3>Book Here</h3> 
-      <form class="input-date" required>
+      <h2>Book Your Next Stay!</h2> 
+      <form class="input-date">
         <label class="input-date">Select A Date</label>
-        <input type="text" placeholder="MM/DD/YY" class="budget-input-box" id="budget-input" name="budget-input" required>
+        <input type="text" name="date" class="input-date-box" placeholder="YYYY/MM/DD">
         <input type="submit" class="submit" value="Submit">
       </form>
       <form class="input-room" required>
-        <label class="input-room">Select A Date</label>
-        <input type="text" placeholder="Room Type" class="budget-input-box" id="budget-input" name="budget-input" required>
+        <label class="input-room">Select A Room Type</label>
+        <select>
+          <option value="room-type">Select an option</option>
+          <option value="residential-suite">Residential Suite</option>
+          <option value="suite">Suite</option>
+          <option value="junior-suite">Junior Suite</option>
+          <option value="single-room">Single Room</option>
+        </select>
         <input type="submit" class="submit" value="Submit">
       </form>
     </aside>

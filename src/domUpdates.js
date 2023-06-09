@@ -1,15 +1,21 @@
 //NOTE: Your DOM manipulation will occur in this file
 import { getBookings, getCustomers, getRooms } from './apiCalls';
 import { findBookings, findTotalSpent } from './customerUtils';
+import flatpickr from 'flatpickr';
+flatpickr(".input-date-box", {});
+
 var currentCustomer;
 let customersData;
 let roomsData;
 let bookingsData;
 
+
+
 // Query Selectors
 const totalSpent = document.querySelector('.total-spent');
 const userGreeting = document.querySelector('.user-greeting');
 const allBookings = document.querySelector('.all-reservations');
+const dateInput = document.querySelector(".input-date-box")
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -60,3 +66,7 @@ const displayCustomerBookings = () => {
         </div>`
   })
 }
+
+// customer should input a date AND select a room type
+  // date input should be only numbers and in correct format "yyyy/mm/dd"
+  // room type should have drop down

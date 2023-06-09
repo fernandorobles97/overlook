@@ -1,3 +1,5 @@
+@import '~flatpickr/dist/flatpickr';
+
 body, html {
   background-color: #efece6;
   min-height: 100vh;
