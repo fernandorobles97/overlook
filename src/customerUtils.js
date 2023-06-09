@@ -21,7 +21,30 @@ const findTotalSpent = (user, bookings, rooms) => {
   return 0;
 };
 
+const findAvailableRooms = (bookings, rooms, date) => {
+  let unavailableRooms = bookings.reduce((roomNumbers, booking) => {
+    if(booking.date === date) {
+      roomNumbers.push(booking.roomNumber)
+    }
+    return roomNumbers;
+  }, []);
+  if(!unavailableRooms.length) {
+    return "No Rooms Available";
+  };
+  return rooms.filter(room => !unavailableRooms.includes(room.number));
+};
+
+const filterByRoomType = (rooms, type) => {
+  let availableRooms = rooms.filter(room => room.roomType === type);
+  if(!availableRooms.length) {
+    return "No Rooms Available For This Type";
+  }
+  return availableRooms;
+};
+
 export {
   findBookings,
-  findTotalSpent
+  findTotalSpent,
+  findAvailableRooms,
+  filterByRoomType
 }
