@@ -2,7 +2,7 @@
 import { getBookings, getCustomers, getRooms } from './apiCalls';
 import { findBookings, findTotalSpent } from './customerUtils';
 import flatpickr from 'flatpickr';
-flatpickr(".input-date-box", {});
+flatpickr(".date-input-box", {});
 
 var currentCustomer;
 let customersData;
@@ -15,7 +15,10 @@ let bookingsData;
 const totalSpent = document.querySelector('.total-spent');
 const userGreeting = document.querySelector('.user-greeting');
 const allBookings = document.querySelector('.all-reservations');
-const dateInput = document.querySelector(".input-date-box")
+const dateInput = document.querySelector(".date-input-box");
+const bookHereForm = document.querySelector('.book-here-form');
+const selectRoomInput = document.querySelector('.select-room')
+const noDateSelected = document.querySelector(".no-date-selected")
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -29,6 +32,16 @@ window.addEventListener('load', () => {
     displayCustomerBookings();
   });
 });
+
+bookHereForm.addEventListener('submit', event => {
+  event.preventDefault()
+  console.log(dateInput.value)
+  console.log(selectRoomInput.value)
+  if(!dateInput.value) {
+    console.log('no')
+   removeHiddenClass([noDateSelected])
+  }
+})
 
 //Event Handlers/Functions
 const setCurrentCustomer = () => {
@@ -67,6 +80,10 @@ const displayCustomerBookings = () => {
   })
 }
 
-// customer should input a date AND select a room type
-  // date input should be only numbers and in correct format "yyyy/mm/dd"
-  // room type should have drop down
+function removeHiddenClass(elements) {
+  return elements.forEach(element => element.classList.remove('hidden'));
+};
+
+function addHiddenClass(elements) {
+  return elements.forEach(element => element.classList.add('hidden'));
+};
