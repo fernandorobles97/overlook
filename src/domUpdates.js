@@ -14,7 +14,7 @@ let bookingsData;
 // Query Selectors
 const totalSpent = document.querySelector('.total-spent');
 const userGreeting = document.querySelector('.user-greeting');
-const allBookings = document.querySelector('.all-reservations');
+const allBookings = document.querySelector('.all-bookings');
 const dateInput = document.querySelector(".date-input-box");
 const bookHereForm = document.querySelector('.book-here-form');
 const selectRoomInput = document.querySelector('.select-room')
