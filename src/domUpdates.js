@@ -1,8 +1,8 @@
 //NOTE: Your DOM manipulation will occur in this file
-import { getBookings, getCustomers, getRooms } from './apiCalls';
+import { getBookings, getCustomers, getRooms, postBooking } from './apiCalls';
 import { filterByRoomType, findAvailableRooms, findBookings, findTotalSpent } from './customerUtils';
 import flatpickr from 'flatpickr';
-flatpickr(".date-input-box", {});
+flatpickr(".date-input-box", {dateFormat: 'Y/m/d'});
 
 var currentCustomer;
 let customersData;
@@ -34,33 +34,34 @@ window.addEventListener('load', () => {
   });
 });
 
+availableRoomsSection.addEventListener('click', (event) => {
+  if (event.target.classList.contains('book-button')) {
+    postBooking(currentCustomer.id, dateInput.value, Number(event.target.id))
+  };
+});
+
 bookHereForm.addEventListener('submit', event => {
   event.preventDefault()
-  // console.log(dateInput.value)
-  console.log(selectRoomInput.value)
   if(!dateInput.value) {
-    console.log('no')
    removeHiddenClass([noDateSelected])
    return;
   }
   renderAvailableRooms();
-})
+});
 
 const renderAvailableRooms = () => {
-  let newDate = dateInput.value.replaceAll('-', '/');
-  // console.log(newDate)
   removeHiddenClass([availableRoomsSection]);
   availableRoomsSection.innerHTML = '';
-  let availableRooms = findAvailableRooms(bookingsData,roomsData, newDate);
-  // console.log(availableRooms)
+  let availableRooms = findAvailableRooms(bookingsData,roomsData, dateInput.value);
   if(selectRoomInput.value === 'All Rooms') {
     availableRooms.forEach(room => {
       availableRoomsSection.innerHTML += `
-      <div class="booking-item">
+      <div class="available-booking-item">
         <div class="new-booking-item">
-          <p>Booking Date: ${newDate}</p> 
+          <p>Booking Date: ${dateInput.value}</p> 
           <p>Room Type: ${room.roomType}</p>
-          <button class="book-button">Book now!</button>
+          <p>Room Number: ${room.number}</p>
+          <button class="book-button" id="${room.number}">Book now!</button>
         </div>
       </div>`
     })
@@ -68,11 +69,12 @@ const renderAvailableRooms = () => {
     let filteredAvailableRooms = filterByRoomType(availableRooms, selectRoomInput.value);
     filteredAvailableRooms.forEach(room => {
       availableRoomsSection.innerHTML += `
-      <div class="booking-item">
+      <div class="available-booking-item">
         <div class="new-booking-item">
-          <p>Booking Date: ${newDate}</p> 
+          <p>Booking Date: ${dateInput.value}</p> 
           <p>Room Type: ${room.roomType}</p>
-          <button class="book-button">Book now!</button>
+          <p>Room Number: ${room.number}</p>
+          <button class="book-button" id="${room.number}">Book now!</button>
         </div>
       </div>`
     })
@@ -123,3 +125,8 @@ function removeHiddenClass(elements) {
 function addHiddenClass(elements) {
   return elements.forEach(element => element.classList.add('hidden'));
 };
+
+export {
+  bookingsData,
+  displayCustomerBookings
+}

@@ -46,7 +46,7 @@ article {
   border-radius: 40px;
   background-color: rgb(254, 254, 254);
   width: 75vw;
-  height: 65vh;
+  height: 85vh;
   font-size: 1.8em;
   font-weight: 500;
   overflow: hidden;
@@ -87,7 +87,7 @@ article {
   text-align:center;
   flex-direction: column;
   align-items: center;
-  height: 150px;
+  height: 250px;
   width: 200px;
   font-size: 15px;
   color: black;
@@ -98,13 +98,14 @@ article {
 .book-button {
   width: 10vw;
   margin-bottom: 2vw;
+  cursor: pointer;
 }
 
 .available-rooms {
   display: flex;
   justify-content: center;
-  height: 400px;
-  width: 900px;
+  height: 65vh;
+  width: 65vw;
   margin-top: 50px;
   flex-wrap: wrap;
   overflow: scroll;
@@ -120,6 +121,19 @@ article {
   color: black;
   background-color: rgb(255, 255, 255);
   height: 125px;
+  width: 200px;
+  border-radius: 40px;
+}
+
+.available-booking-item {
+  display: flex;
+  text-align:center;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  height: 200px;
   width: 200px;
   border-radius: 40px;
 }
