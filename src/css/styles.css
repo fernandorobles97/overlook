@@ -82,16 +82,36 @@ article {
   border-radius: 12px;
 }
 
-.reservation-card {
+.new-booking-item {
   display: flex;
+  text-align:center;
   flex-direction: column;
   align-items: center;
-  font-size: 50px;
-  font-weight: 800;
-  color:#393020
+  height: 150px;
+  width: 200px;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(166, 191, 213);
+  border-radius: 40px;
 }
 
-.booking-info {
+.book-button {
+  width: 10vw;
+  margin-bottom: 2vw;
+}
+
+.available-rooms {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  width: 900px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.booking-item {
   display: flex;
   text-align:center;
   flex-direction: column;
