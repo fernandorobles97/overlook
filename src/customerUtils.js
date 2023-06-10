@@ -28,10 +28,11 @@ const findAvailableRooms = (bookings, rooms, date) => {
     }
     return roomNumbers;
   }, []);
-  if(!unavailableRooms.length) {
+  let availableRooms = rooms.filter(room => !unavailableRooms.includes(room.number));
+  if(!availableRooms.length) {
     return "No Rooms Available";
   };
-  return rooms.filter(room => !unavailableRooms.includes(room.number));
+  return availableRooms
 };
 
 const filterByRoomType = (rooms, type) => {

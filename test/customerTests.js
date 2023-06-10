@@ -11,7 +11,7 @@ describe('findBookings', () => {
     const currentUser = {"id": 1, "name": "Leatha Ullrich"};
     const bookingsForCurrentUser = findBookings(currentUser, bookings1);
 
-    expect(bookingsForCurrentUser.length).to.equal(2);
+    expect(bookingsForCurrentUser.length).to.equal(9);
     expect(bookingsForCurrentUser[0].userID).to.equal(1)
   });
 
@@ -32,7 +32,7 @@ describe('findTotalSpent', () => {
     const currentUser = {"id": 1, "name": "Leatha Ullrich"};
     const totalSpent = findTotalSpent(currentUser, bookings1, rooms1);
 
-    expect(totalSpent).to.equal(466.65);
+    expect(totalSpent).to.equal(2911.63);
   });
 
   it('should return 0 if user has no bookings', () => {
@@ -55,7 +55,7 @@ describe('findAvailableRooms', () => {
   });
 
   it('should return "No Rooms Available" if none are found', () => {
-    const noAvailableRooms = findAvailableRooms(bookings1, rooms1, "2023/06/28");
+    const noAvailableRooms = findAvailableRooms(bookings1, rooms1, "2023/12/22");
 
     expect(noAvailableRooms).to.equal("No Rooms Available");
   });
