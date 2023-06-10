@@ -6,9 +6,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Recipes for everyone's taste!"/>
+  <meta name="description" content="Browse and Make New Bookings!"/>
 </head>
 <body>
   <header>
@@ -20,22 +19,19 @@
   </header>
   <main>
     <aside class="book-here">
-      <h2>Book Your Next Stay!</h2> 
-      <form class="input-date">
+      <h2 class="book-here-header">Book Your Next Stay!</h2> 
+      <form class="book-here-form">
         <label class="input-date">Select A Date</label>
-        <input type="text" name="date" class="input-date-box" placeholder="YYYY/MM/DD">
-        <input type="submit" class="submit" value="Submit">
-      </form>
-      <form class="input-room" required>
+        <input type="text" name="date" class="date-input-box" placeholder="YYYY/MM/DD">
+        <span class="no-date-selected hidden">Please select a date!</span>
         <label class="input-room">Select A Room Type</label>
-        <select>
-          <option value="room-type">Select an option</option>
-          <option value="residential-suite">Residential Suite</option>
+        <select class="select-room">
+          <option value="residential suite">Residential Suite</option>
           <option value="suite">Suite</option>
-          <option value="junior-suite">Junior Suite</option>
-          <option value="single-room">Single Room</option>
+          <option value="junior suite">Junior Suite</option>
+          <option value="single room">Single Room</option>
         </select>
-        <input type="submit" class="submit" value="Submit">
+        <input type="submit" class="submit" value="Check Availability!">
       </form>
     </aside>
     <article class="all-bookings-section">
