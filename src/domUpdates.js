@@ -43,10 +43,6 @@ availableRoomsSection.addEventListener('click', (event) => {
   };
 });
 
-const displayBookingMessage = () => {
-  addHiddenClass([availableRoomsSection])
-  removeHiddenClass([bookingMessage])
-}
 
 bookHereForm.addEventListener('submit', event => {
   event.preventDefault()
@@ -58,38 +54,6 @@ bookHereForm.addEventListener('submit', event => {
   addHiddenClass([bookingMessage])
   renderAvailableRooms();
 });
-
-const renderAvailableRooms = () => {
-  removeHiddenClass([availableRoomsSection]);
-  availableRoomsSection.innerHTML = '';
-  let availableRooms = findAvailableRooms(bookingsData,roomsData, dateInput.value);
-  if(selectRoomInput.value === 'All Rooms') {
-    availableRooms.forEach(room => {
-      availableRoomsSection.innerHTML += `
-      <div class="available-booking-item">
-        <div class="new-booking-item">
-          <p>Booking Date: ${dateInput.value}</p> 
-          <p>Room Type: ${room.roomType}</p>
-          <p>Room Number: ${room.number}</p>
-          <button class="book-button" id="${room.number}">Book now!</button>
-        </div>
-      </div>`
-    })
-  } else {
-    let filteredAvailableRooms = filterByRoomType(availableRooms, selectRoomInput.value);
-    filteredAvailableRooms.forEach(room => {
-      availableRoomsSection.innerHTML += `
-      <div class="available-booking-item">
-        <div class="new-booking-item">
-          <p>Booking Date: ${dateInput.value}</p> 
-          <p>Room Type: ${room.roomType}</p>
-          <p>Room Number: ${room.number}</p>
-          <button class="book-button" id="${room.number}">Book now!</button>
-        </div>
-      </div>`
-    })
-  }
-};
 
 //Event Handlers/Functions
 const setCurrentCustomer = () => {
@@ -126,13 +90,67 @@ const displayCustomerBookings = () => {
           </div>
         </div>`
   })
+};
+
+const renderAvailableRooms = () => {
+  removeHiddenClass([availableRoomsSection]);
+  availableRoomsSection.innerHTML = '';
+  let availableRooms = findAvailableRooms(bookingsData,roomsData, dateInput.value);
+  if(availableRooms === "No Rooms Available") {
+    displayForgivingMessage(availableRooms);
+  }
+  if(selectRoomInput.value === 'All Rooms') {
+    availableRooms.forEach(room => {
+      availableRoomsSection.innerHTML += `
+      <div class="available-booking-item">
+        <div class="new-booking-item">
+          <p>Booking Date: ${dateInput.value}</p> 
+          <p>Room Type: ${room.roomType}</p>
+          <p>Room Number: ${room.number}</p>
+          <button class="book-button" id="${room.number}">Book now!</button>
+        </div>
+      </div>`;
+    });
+  } else {
+    let filteredAvailableRooms = filterByRoomType(availableRooms, selectRoomInput.value);
+    if(filteredAvailableRooms === "No Rooms Available For This Type") {
+      displayForgivingMessage(filteredAvailableRooms);
+    }
+    filteredAvailableRooms.forEach(room => {
+      availableRoomsSection.innerHTML += `
+      <div class="available-booking-item">
+        <div class="new-booking-item">
+          <p>Booking Date: ${dateInput.value}</p> 
+          <p>Room Type: ${room.roomType}</p>
+          <p>Room Number: ${room.number}</p>
+          <button class="book-button" id="${room.number}">Book now!</button>
+        </div>
+      </div>`;
+    });
+  };
+};
+
+const displayBookingMessage = () => {
+  bookingMessage.innerHTML = "<p>The booking has been confirmed!</p><p>Your total spent has been updated, and you can find your latest booking under All Bookings.</p> <p>Thank you so much! Please continue browsing if you'd like to book another room!";
+  addHiddenClass([availableRoomsSection]);
+  removeHiddenClass([bookingMessage]);
 }
 
-function removeHiddenClass(elements) {
+const displayForgivingMessage = (type) => {
+  addHiddenClass([availableRoomsSection]);
+  removeHiddenClass([bookingMessage]);
+  if(type === "No Rooms Available For This Type") {
+    bookingMessage.innerHTML = "We are so sorry, there are no more rooms of this variety available. Please continue to browse our other options!";
+  } else {
+    bookingMessage.innerHTML = "We are so sorry, there are no rooms available on this date. Please consider checking another one!";
+  }
+};
+
+const removeHiddenClass = (elements) => {
   return elements.forEach(element => element.classList.remove('hidden'));
 };
 
-function addHiddenClass(elements) {
+const addHiddenClass = (elements) => {
   return elements.forEach(element => element.classList.add('hidden'));
 };
 
