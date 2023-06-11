@@ -20,6 +20,7 @@ const bookHereForm = document.querySelector('.book-here-form');
 const selectRoomInput = document.querySelector('.select-room')
 const noDateSelected = document.querySelector(".no-date-selected")
 const availableRoomsSection = document.querySelector('.available-rooms')
+const bookingMessage = document.querySelector('.booking-message')
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -36,9 +37,16 @@ window.addEventListener('load', () => {
 
 availableRoomsSection.addEventListener('click', (event) => {
   if (event.target.classList.contains('book-button')) {
-    postBooking(currentCustomer.id, dateInput.value, Number(event.target.id))
+    postBooking(currentCustomer.id, dateInput.value, parseInt(event.target.id));
+    displayBookingMessage(); 
+    displayTotalSpent();
   };
 });
+
+const displayBookingMessage = () => {
+  addHiddenClass([availableRoomsSection])
+  removeHiddenClass([bookingMessage])
+}
 
 bookHereForm.addEventListener('submit', event => {
   event.preventDefault()
@@ -46,6 +54,8 @@ bookHereForm.addEventListener('submit', event => {
    removeHiddenClass([noDateSelected])
    return;
   }
+  addHiddenClass([noDateSelected])
+  addHiddenClass([bookingMessage])
   renderAvailableRooms();
 });
 
