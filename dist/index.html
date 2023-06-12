@@ -39,19 +39,25 @@
       </div>
     </aside>
     <article class="book-here">
-      <h2 class="book-here-header">Book Your Next Stay!</h2> 
+      <h2 class="book-here-header">Book Your Next Stay Now!</h2> 
       <form class="book-here-form">
-        <label class="input-date">Select A Date</label>
-        <input type="text" name="date" class="date-input-box" placeholder="YYYY/MM/DD">
-        <span class="no-date-selected hidden">Please select a date!</span>
-        <label class="input-room">Select A Room Type</label>
-        <select class="select-room">
-          <option>All Rooms</option>
-          <option value="residential suite">Residential Suite</option>
-          <option value="suite">Suite</option>
-          <option value="junior suite">Junior Suite</option>
-          <option value="single room">Single Room</option>
-        </select>
+        <div class="options">
+          <div class="date-option">
+            <label class="input-date">Select A Date</label>
+            <input type="text" name="date" class="date-input-box" placeholder="YYYY/MM/DD">
+            <span class="no-date-selected hidden">Please select a date!</span>
+          </div>
+          <div class="room-option">
+            <label class="input-room">Select A Room Type</label>
+            <select class="select-room">
+              <option>All Rooms</option>
+              <option value="residential suite">Residential Suite</option>
+              <option value="suite">Suite</option>
+              <option value="junior suite">Junior Suite</option>
+              <option value="single room">Single Room</option>
+            </select>
+          </div>
+        </div>
         <input type="submit" class="submit" value="Check Availability!">
       </form>
       <section class="available-rooms hidden">
