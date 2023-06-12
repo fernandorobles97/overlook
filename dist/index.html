@@ -18,7 +18,7 @@
         <p class="user-greeting">Welcome, New User!</p>
       </div>
       <div class="header-field">
-        <h1 tabindex="0"> The Hotel Jonesy</h1>
+        <h1> The Hotel Jonesy</h1>
         <img src="./images/happy.png" class="cat-icon" alt="cat icon">
       </div>
       <div class="total-spent-field">
@@ -29,27 +29,18 @@
     </nav>
   </header>
   <main>
-    <aside class="all-bookings-section">
-      <div class="all-bookings-header">
-        <h2>All Bookings</h2>
-        <img src="./images/calendar.png" class="customer-icon" alt="calendar icon">
-      </div>
-      <div class="all-bookings">
-        <!-- bookings will populate here -->
-      </div>
-    </aside>
     <article class="book-here">
       <h2 class="book-here-header">Book Your Next Stay Now!</h2> 
       <form class="book-here-form">
         <div class="options">
           <div class="date-option">
-            <label class="input-date">Select A Date</label>
-            <input type="text" name="date" class="date-input-box" placeholder="YYYY/MM/DD">
+            <label class="input-date" for="date-input-box" >Select A Date</label>
+            <input type="text" name="date" class="date-input-box" id="date-input-box"  placeholder="YYYY/MM/DD">
             <span class="no-date-selected hidden">Please select a date!</span>
           </div>
           <div class="room-option">
-            <label class="input-room">Select A Room Type</label>
-            <select class="select-room">
+            <label class="input-room" for="select-room">Select A Room Type</label>
+            <select class="select-room" id="select-room">
               <option>All Rooms</option>
               <option value="residential suite">Residential Suite</option>
               <option value="suite">Suite</option>
@@ -67,6 +58,15 @@
         <!-- messages will appear here -->
       </section> 
     </article>
+    <aside class="all-bookings-section">
+      <div class="all-bookings-header">
+        <h2>All Bookings</h2>
+        <img src="./images/calendar.png" class="customer-icon" alt="calendar icon">
+      </div>
+      <div class="all-bookings">
+        <!-- bookings will populate here -->
+      </div>
+    </aside>
   </main>
 </body>
 <script src="bundle.js"></script>

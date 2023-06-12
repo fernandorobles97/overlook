@@ -84,7 +84,7 @@ const displayCustomerBookings = () => {
   filteredBookings.forEach(booking => {
     allBookings.innerHTML += `
     <div class="reservation-wrapper">
-          <div class="booking-item">
+          <div class="booking-item" tabindex="0">
             <p>Booking Date: ${booking.date}</p> 
             <p>Room Type: ${findRoomType(booking.roomNumber)}</p>
           </div>
