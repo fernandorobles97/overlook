@@ -2,7 +2,7 @@
 import { getBookings, getCustomers, getRooms, postBooking } from './apiCalls';
 import { filterByRoomType, findAvailableRooms, findBookings, findTotalSpent } from './customerUtils';
 import flatpickr from 'flatpickr';
-flatpickr(".date-input-box", {dateFormat: 'Y/m/d'});
+flatpickr(".date-input-box", {dateFormat: 'Y/m/d', allowInput: true});
 
 var currentCustomer;
 let customersData;
@@ -142,7 +142,7 @@ const displayForgivingMessage = (type) => {
   if(type === "No Rooms Available For This Type") {
     bookingMessage.innerHTML = "We are so sorry, there are no more rooms of this variety available. Please continue to browse our other options!";
   } else {
-    bookingMessage.innerHTML = "We are so sorry, there are no rooms available on this date. Please consider checking another one!";
+    bookingMessage.innerHTML = "We are so sorry, there are no rooms available on this date. Please consider staying a different date!";
   }
 };
 
