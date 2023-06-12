@@ -10,7 +10,7 @@ body, html {
   font-family: Open Sans;
 }
 
-nav, .customer-field, .total-spent-field, main, .all-bookings-section, .all-bookings-header, .all-bookings, .reservation-wrapper, .booking-item, article, .options, .book-here-form, .date-option, .room-option, .available-rooms, .available-booking-item, .new-booking-item, .booking-message {
+nav, .customer-field, .total-spent-field, main, .all-bookings-section, .all-bookings-header, .all-bookings, .reservation-wrapper, .booking-item, article, .options, .book-here-form, .date-option, .room-option, .available-rooms, .available-booking-item, .new-booking-item, .booking-message, .header-field {
   display: flex;
 }
 
