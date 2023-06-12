@@ -10,62 +10,86 @@ body, html {
   font-family: Open Sans;
 }
 
+nav, .customer-field, .total-spent-field, main, .all-bookings-section, .all-bookings-header, .all-bookings, .reservation-wrapper, .booking-item, article, .options, .book-here-form, .date-option, .room-option, .available-rooms, .available-booking-item, .new-booking-item, .booking-message, .header-field {
+  display: flex;
+}
+
 nav {
   overflow: hidden;
   background-color: #ebc27e;
-  height: 100px;
-  width: 100vw;
-  display: flex;
+  height: 11vh;
   align-items: center;
   justify-content: space-around;
   box-shadow: 0 4px 20px -2px #A2AEBB;
+}
+
+p {
+  margin: 0;
+}
+
+.customer-field {
+  flex-direction: column;
+  align-items: center;
+}
+
+.customer-icon {
+  height: 5vh;
+  width: 3vw;
+}
+
+.user-greeting {
+  margin-top: 0;
+}
+
+.header-field {
+  align-items: baseline;
 }
 
 h1 {
   font-size: 70px;
   font-weight: 700;
   color: rgb(48, 44, 44);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  margin-top: 5vh;
+}
+
+.cat-icon {
+  height: 6vh;
+}
+
+.total-spent-field {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+h2 {
+  margin-right: 0.5vw;
 }
 
 main {
-  display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 5vh;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 40px;
-  background-color: rgb(254, 254, 254);
-  width: 75vw;
-  height: 85vh;
-  font-size: 1.8em;
-  font-weight: 500;
-  overflow: hidden;
-}
-
 .all-bookings-section {
-  display: flex;
   flex-direction: column;
   align-items: center;
+  border-style: solid;
+  border-width: 5px;
   border-radius: 40px;
-  background-color: rgb(166, 191, 213);
+  background-color: white;
   width: 20vw;
   height: 80vh;
   font-size: 30px;
   overflow: hidden;
+  box-shadow: 0 4px 20px -2px #A2AEBB;
+}
+
+.all-bookings-header {
+  align-items: center;
 }
 
 .all-bookings {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   overflow: scroll;
@@ -73,93 +97,162 @@ article {
 }
 
 .reservation-wrapper {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  margin-bottom: 5vh;
   width: 300px;
   border-radius: 12px;
 }
 
-.new-booking-item {
-  display: flex;
-  text-align:center;
+.booking-item {
+  margin-bottom: 5vh;
   flex-direction: column;
   align-items: center;
-  height: 250px;
-  width: 200px;
-  font-size: 15px;
-  color: black;
-  background-color: rgb(166, 191, 213);
-  border-radius: 40px;
-}
-
-.book-button {
-  width: 10vw;
-  margin-bottom: 2vw;
-  cursor: pointer;
-}
-
-.available-rooms {
-  display: flex;
   justify-content: center;
-  height: 65vh;
-  width: 65vw;
-  margin-top: 50px;
-  flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-.booking-item {
-  display: flex;
-  text-align:center;
-  flex-direction: column;
-  font-weight: 200;
   font-size: 15px;
-  color: black;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(166, 191, 213);
   height: 125px;
-  width: 200px;
+  width: 250px;
   border-radius: 40px;
+  border-style: solid;
+  border-width: 3px;
+  opacity: 0.65;;
 }
 
-.available-booking-item {
-  display: flex;
-  text-align:center;
+.booking-item:hover {
+  opacity: 1.0;
+}
+
+article {
   flex-direction: column;
-  font-weight: 200;
-  font-size: 15px;
-  color: black;
-  background-color: rgb(255, 255, 255);
-  height: 200px;
-  width: 200px;
+  align-items: center;
+  justify-content: center;
   border-radius: 40px;
+  background-color: rgb(166, 191, 213);
+  border-style: solid;
+  border-width: 5px;
+  box-shadow: 0 4px 20px -2px #A2AEBB;
+  width: 75vw;
+  height: 75vh;
+  font-size: 1.8em;
+  overflow: hidden;
+}
+
+
+.options {
+  font-size: 25px;
+  width: 60vw;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .book-here-form {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 25px;
-  height: 40px;
 }
 
-.book-here-header {
-  margin-bottom: 0;
+.submit {
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 2.5vh;
+  height: 3.5vh;
+  width: 16vw;
+  background-color: white;
+  border-radius: 40px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3.5px;
+  opacity: 0.5;
 }
+
+.submit:hover {
+  opacity: 1.0;
+}
+
+.date-option, .room-option {
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-date, .input-room {
+  font-size: 35px;
+  margin-bottom: 1vh;
+}
+
+.date-input-box, .select-room {
+  height: 3vh;
+  width: 10vw;
+}
+
 
 .no-date-selected {
   color: red;
   font-size: 25px;
 }
 
-.submit {
+select {
   cursor: pointer;
 }
 
-select {
+.available-rooms {
+  justify-content: center;
+  height: 65vh;
+  width: 75vw;
+  margin-top: 3vh;
+  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.available-booking-item {
+  text-align:center;
+  flex-direction: column;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border-radius: 40px;
+  border-style: solid;
+  border-width: 5px;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+}
+
+.new-booking-item {
+  text-align:center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 250px;
+  width: 200px;
+  font-size: 15px;
+  color: black;
+  background-color: white;
+  border-radius: 40px;
+}
+
+.book-button {
+  width: 5vw;
   cursor: pointer;
+  background-color: rgb(166, 191, 213);
+  border-radius: 40px;
+  border-style: solid;
+  border-width: 2.5px;
+  border-color: black;
+}
+
+.booking-message {
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  margin-top: 3vh;
+  height: 30vh;
+  width: 50vw;
+  background-color: white;
+  border-radius: 40px;
+  border-style: solid;
+  border-width: 5px;
+  padding: 15px;
 }
 
 .hidden {
