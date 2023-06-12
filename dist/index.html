@@ -29,34 +29,46 @@
     </nav>
   </header>
   <main>
-    <article class="book-here">
-      <h2 class="book-here-header">Book Your Next Stay Now!</h2> 
-      <form class="book-here-form">
-        <div class="options">
-          <div class="date-option">
-            <label class="input-date" for="date-input-box" >Select A Date</label>
-            <input type="text" name="date" class="date-input-box" id="date-input-box"  placeholder="YYYY/MM/DD">
-            <span class="no-date-selected hidden">Please select a date!</span>
-          </div>
-          <div class="room-option">
-            <label class="input-room" for="select-room">Select A Room Type</label>
-            <select class="select-room" id="select-room">
-              <option>All Rooms</option>
-              <option value="residential suite">Residential Suite</option>
-              <option value="suite">Suite</option>
-              <option value="junior suite">Junior Suite</option>
-              <option value="single room">Single Room</option>
-            </select>
-          </div>
-        </div>
-        <input type="submit" class="submit" value="Check Availability!">
-      </form>
-      <section class="available-rooms hidden">
-        <!-- available rooms will populate here -->
+    <article>
+      <section class="login">
+        <h2>Login!</h2>
+        <form class="login-form">
+          <label class="input-username" for="username-input">Enter Your Username</label>
+          <input type="text" id="username-input" placeholder="Username">
+          <label class="input-password" for="password-input">Enter Your Password</label>
+          <input type="text" id="password-input" placeholder="Password">
+          <button class="login-button">Sign In</button>
+        </form>
       </section>
-      <section class="booking-message hidden">
-        <!-- messages will appear here -->
-      </section> 
+      <section class="book-here hidden">
+        <h2 class="book-here-header">Book Your Next Stay Now!</h2> 
+        <form class="book-here-form">
+          <div class="options">
+            <div class="date-option">
+              <label class="input-date" for="date-input-box" >Select A Date</label>
+              <input type="text" name="date" class="date-input-box" id="date-input-box" placeholder="YYYY/MM/DD">
+              <span class="no-date-selected hidden">Please select a date!</span>
+            </div>
+            <div class="room-option">
+              <label class="input-room" for="select-room">Select A Room Type</label>
+              <select class="select-room" id="select-room">
+                <option>All Rooms</option>
+                <option value="residential suite">Residential Suite</option>
+                <option value="suite">Suite</option>
+                <option value="junior suite">Junior Suite</option>
+                <option value="single room">Single Room</option>
+              </select>
+            </div>
+          </div>
+          <input type="submit" class="submit" value="Check Availability!">
+        </form>
+        <section class="available-rooms hidden">
+          <!-- available rooms will populate here -->
+        </section>
+        <section class="booking-message hidden">
+          <!-- messages will appear here -->
+        </section> 
+      </section>
     </article>
     <aside class="all-bookings-section">
       <div class="all-bookings-header">
