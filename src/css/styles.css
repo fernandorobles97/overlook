@@ -1,3 +1,5 @@
+@import '~flatpickr/dist/flatpickr';
+
 body, html {
   background-color: #efece6;
   min-height: 100vh;
@@ -36,35 +38,35 @@ main {
   margin-top: 5vh;
 }
 
-aside {
+article {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 40px;
   background-color: rgb(254, 254, 254);
-  width: 30vw;
-  height: 30vh;
+  width: 75vw;
+  height: 85vh;
   font-size: 1.8em;
   font-weight: 500;
   overflow: hidden;
-  cursor: pointer;
 }
 
-.all-bookings-section{
+.all-bookings-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 40px;
   background-color: rgb(166, 191, 213);
-  width: 65vw;
+  width: 20vw;
   height: 80vh;
   font-size: 30px;
   overflow: hidden;
 }
 
-.all-reservations {
+.all-bookings {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   overflow: scroll;
   overflow-x: hidden;
@@ -80,16 +82,37 @@ aside {
   border-radius: 12px;
 }
 
-.reservation-card {
+.new-booking-item {
   display: flex;
+  text-align:center;
   flex-direction: column;
   align-items: center;
-  font-size: 50px;
-  font-weight: 800;
-  color:#393020
+  height: 250px;
+  width: 200px;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(166, 191, 213);
+  border-radius: 40px;
 }
 
-.booking-info {
+.book-button {
+  width: 10vw;
+  margin-bottom: 2vw;
+  cursor: pointer;
+}
+
+.available-rooms {
+  display: flex;
+  justify-content: center;
+  height: 65vh;
+  width: 65vw;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.booking-item {
   display: flex;
   text-align:center;
   flex-direction: column;
@@ -100,4 +123,45 @@ aside {
   height: 125px;
   width: 200px;
   border-radius: 40px;
+}
+
+.available-booking-item {
+  display: flex;
+  text-align:center;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  height: 200px;
+  width: 200px;
+  border-radius: 40px;
+}
+
+.book-here-form {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  height: 40px;
+}
+
+.book-here-header {
+  margin-bottom: 0;
+}
+
+.no-date-selected {
+  color: red;
+  font-size: 25px;
+}
+
+.submit {
+  cursor: pointer;
+}
+
+select {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

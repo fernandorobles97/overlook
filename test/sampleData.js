@@ -131,6 +131,42 @@ const bookings1 = [
     "userID": 36,
     "date": "2022/04/22",
     "roomNumber": 23
+  },
+  {
+    "id": "5fwrgu4232k55hl72h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 1
+  },  {
+    "id": "5fwr123u4i7k55hl72h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 2
+  },  {
+    "id": "5fwrgu4i7k55h6472h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 4
+  },  {
+    "id": "5123rgu4i7k55hl72h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 3
+  },  {
+    "id": "5fwrg232i7k55hl72h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 5
+  },  {
+    "id": "5fwr23u4i7k55hl72h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 12
+  },  {
+    "id": "5fwrgu4i7k554l72h",
+    "userID": 1,
+    "date": "2023/12/22",
+    "roomNumber": 23
   }
 ];
 
