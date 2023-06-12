@@ -39,7 +39,6 @@ availableRoomsSection.addEventListener('click', (event) => {
   if (event.target.classList.contains('book-button')) {
     postBooking(currentCustomer.id, dateInput.value, parseInt(event.target.id));
     displayBookingMessage(); 
-    displayTotalSpent();
   };
 });
 
@@ -97,7 +96,7 @@ const renderAvailableRooms = () => {
   availableRoomsSection.innerHTML = '';
   let availableRooms = findAvailableRooms(bookingsData,roomsData, dateInput.value);
   if(availableRooms === "No Rooms Available") {
-    displayForgivingMessage(availableRooms);
+    return displayForgivingMessage(availableRooms);
   }
   if(selectRoomInput.value === 'All Rooms') {
     availableRooms.forEach(room => {
@@ -107,6 +106,7 @@ const renderAvailableRooms = () => {
           <p>Booking Date: ${dateInput.value}</p> 
           <p>Room Type: ${room.roomType}</p>
           <p>Room Number: ${room.number}</p>
+          <p>Room Cost: $${room.costPerNight.toFixed(2)}</p>
           <button class="book-button" id="${room.number}">Book now!</button>
         </div>
       </div>`;
@@ -114,7 +114,7 @@ const renderAvailableRooms = () => {
   } else {
     let filteredAvailableRooms = filterByRoomType(availableRooms, selectRoomInput.value);
     if(filteredAvailableRooms === "No Rooms Available For This Type") {
-      displayForgivingMessage(filteredAvailableRooms);
+      return displayForgivingMessage(filteredAvailableRooms);
     }
     filteredAvailableRooms.forEach(room => {
       availableRoomsSection.innerHTML += `
@@ -123,6 +123,7 @@ const renderAvailableRooms = () => {
           <p>Booking Date: ${dateInput.value}</p> 
           <p>Room Type: ${room.roomType}</p>
           <p>Room Number: ${room.number}</p>
+          <p>Room Cost: $${room.costPerNight.toFixed(2)}</p>
           <button class="book-button" id="${room.number}">Book now!</button>
         </div>
       </div>`;
@@ -156,5 +157,6 @@ const addHiddenClass = (elements) => {
 
 export {
   bookingsData,
-  displayCustomerBookings
+  displayCustomerBookings,
+  displayTotalSpent
 }
