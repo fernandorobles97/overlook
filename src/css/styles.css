@@ -13,12 +13,36 @@ body, html {
 nav {
   overflow: hidden;
   background-color: #ebc27e;
-  height: 100px;
+  height: 11vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
   box-shadow: 0 4px 20px -2px #A2AEBB;
+}
+
+p {
+  margin: 0;
+}
+
+.customer-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.customer-icon {
+  height: 5vh;
+  width: 3vw;
+}
+
+.user-greeting {
+  margin-top: 0;
+}
+
+.header-field {
+  display: flex;
+  align-items: baseline;
 }
 
 h1 {
@@ -28,7 +52,21 @@ h1 {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 5vh;
+}
+
+.cat-icon {
+  height: 6vh;
+}
+
+.total-spent-field {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+h2 {
+  margin-right: 0.5vw;
 }
 
 main {
@@ -36,20 +74,6 @@ main {
   justify-content: space-around;
   align-items: center;
   margin-top: 5vh;
-}
-
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 40px;
-  background-color: rgb(254, 254, 254);
-  width: 75vw;
-  height: 85vh;
-  font-size: 1.8em;
-  font-weight: 500;
-  overflow: hidden;
 }
 
 .all-bookings-section {
@@ -62,6 +86,11 @@ article {
   height: 80vh;
   font-size: 30px;
   overflow: hidden;
+}
+
+.all-bookings-header {
+  display: flex;
+  align-items: center;
 }
 
 .all-bookings {
@@ -82,6 +111,81 @@ article {
   border-radius: 12px;
 }
 
+.booking-item {
+  display: flex;
+  text-align:center;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  height: 125px;
+  width: 200px;
+  border-radius: 40px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  background-color: rgb(254, 254, 254);
+  width: 75vw;
+  height: 85vh;
+  font-size: 1.8em;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.book-here-header {
+  margin-bottom: 0;
+}
+
+.book-here-form {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  height: 40px;
+}
+
+.no-date-selected {
+  color: red;
+  font-size: 25px;
+}
+
+select {
+  cursor: pointer;
+}
+
+.submit {
+  cursor: pointer;
+}
+
+.available-rooms {
+  display: flex;
+  justify-content: center;
+  height: 65vh;
+  width: 65vw;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.available-booking-item {
+  display: flex;
+  text-align:center;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 15px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  height: 200px;
+  width: 200px;
+  border-radius: 40px;
+}
+
 .new-booking-item {
   display: flex;
   text-align:center;
@@ -98,67 +202,6 @@ article {
 .book-button {
   width: 10vw;
   margin-bottom: 2vw;
-  cursor: pointer;
-}
-
-.available-rooms {
-  display: flex;
-  justify-content: center;
-  height: 65vh;
-  width: 65vw;
-  margin-top: 50px;
-  flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-.booking-item {
-  display: flex;
-  text-align:center;
-  flex-direction: column;
-  font-weight: 200;
-  font-size: 15px;
-  color: black;
-  background-color: rgb(255, 255, 255);
-  height: 125px;
-  width: 200px;
-  border-radius: 40px;
-}
-
-.available-booking-item {
-  display: flex;
-  text-align:center;
-  flex-direction: column;
-  font-weight: 200;
-  font-size: 15px;
-  color: black;
-  background-color: rgb(255, 255, 255);
-  height: 200px;
-  width: 200px;
-  border-radius: 40px;
-}
-
-.book-here-form {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-  height: 40px;
-}
-
-.book-here-header {
-  margin-bottom: 0;
-}
-
-.no-date-selected {
-  color: red;
-  font-size: 25px;
-}
-
-.submit {
-  cursor: pointer;
-}
-
-select {
   cursor: pointer;
 }
 

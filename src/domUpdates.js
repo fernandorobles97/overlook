@@ -62,11 +62,11 @@ const setCurrentCustomer = () => {
 
 const displayTotalSpent = () => {
   let total = findTotalSpent(currentCustomer, bookingsData, roomsData);
-  totalSpent.innerHTML = `Total Spent: $${total.toFixed(2)}`;
+  totalSpent.innerHTML = `$${total.toFixed(2)}`;
 };
 
 const displayCustomerName = () => {
-  userGreeting.innerHTML = `Welcome, ${currentCustomer.name}`;
+  userGreeting.innerHTML = `${currentCustomer.name}!`;
 };
 
 const findRoomType = (roomNumber) => {
