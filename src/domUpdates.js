@@ -93,8 +93,11 @@ const findRoomType = (roomNumber) => {
 
 const displayCustomerBookings = () => {
   let filteredBookings = findBookings(currentCustomer, bookingsData);
+  let sortedBookings = filteredBookings.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date)
+  })
   allBookings.innerHTML = '';
-  filteredBookings.forEach(booking => {
+  sortedBookings.forEach(booking => {
     allBookings.innerHTML += `
     <div class="reservation-wrapper">
           <div class="booking-item" tabindex="0">
