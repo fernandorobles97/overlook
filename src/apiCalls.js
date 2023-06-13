@@ -1,4 +1,4 @@
-import { bookingsData, displayCustomerBookings }  from './domUpdates'
+import { bookingsData, displayCustomerBookings, displayTotalSpent }  from './domUpdates'
 
 const getCustomers = () => {
   return fetch('http://localhost:3001/api/v1/customers')
@@ -31,6 +31,7 @@ fetch('http://localhost:3001/api/v1/bookings', {
 .then(json => {
   bookingsData.push(json.newBooking);
   displayCustomerBookings();
+  displayTotalSpent();
 })
 .catch(error => alert(error))
 }

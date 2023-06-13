@@ -1,5 +1,5 @@
 //NOTE: Your DOM manipulation will occur in this file
-import { getBookings, getCustomers, getRooms, postBooking } from './apiCalls';
+import { getBookings, getCustomers, getRooms, getSingleCustomer, postBooking } from './apiCalls';
 import { filterByRoomType, findAvailableRooms, findBookings, findTotalSpent } from './customerUtils';
 import flatpickr from 'flatpickr';
 flatpickr(".date-input-box", {dateFormat: 'Y/m/d', allowInput: true});
@@ -21,6 +21,12 @@ const selectRoomInput = document.querySelector('.select-room')
 const noDateSelected = document.querySelector(".no-date-selected")
 const availableRoomsSection = document.querySelector('.available-rooms')
 const bookingMessage = document.querySelector('.booking-message')
+const bookHereSection = document.querySelector('.book-here')
+const loginPage = document.querySelector('.login')
+const usernameInput = document.querySelector('.username-input')
+const passwordInput = document.querySelector('.password-input')
+const loginButton = document.querySelector('.login-button')
+const loginErrorMessage = document.querySelector('.login-error-message')
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -28,10 +34,10 @@ window.addEventListener('load', () => {
     customersData = data[1].customers;
     roomsData = data[2].rooms;
     bookingsData = data[0].bookings;
-    setCurrentCustomer();
-    displayTotalSpent();
-    displayCustomerName();
-    displayCustomerBookings();
+    // setCurrentCustomer();
+    // displayTotalSpent();
+    // displayCustomerName();
+    // displayCustomerBookings();
   });
 });
 
@@ -39,7 +45,6 @@ availableRoomsSection.addEventListener('click', (event) => {
   if (event.target.classList.contains('book-button')) {
     postBooking(currentCustomer.id, dateInput.value, parseInt(event.target.id));
     displayBookingMessage(); 
-    displayTotalSpent();
   };
 });
 
@@ -55,9 +60,21 @@ bookHereForm.addEventListener('submit', event => {
   renderAvailableRooms();
 });
 
+loginButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  let customerID = usernameInput.value.split('customer')[1]
+  let foundCustomer = customersData.find(customer => customer.id === parseInt(customerID))
+  if(foundCustomer && passwordInput.value === 'overlook2021') {
+    setCurrentCustomer(foundCustomer);
+    displayDashboard();
+  } else {
+    removeHiddenClass([loginErrorMessage])
+  } 
+})
+
 //Event Handlers/Functions
-const setCurrentCustomer = () => {
-  return currentCustomer = customersData[Math.floor(Math.random()*customersData.length)];
+const setCurrentCustomer = (current) => {
+  return currentCustomer = current;
 };
 
 const displayTotalSpent = () => {
@@ -97,7 +114,7 @@ const renderAvailableRooms = () => {
   availableRoomsSection.innerHTML = '';
   let availableRooms = findAvailableRooms(bookingsData,roomsData, dateInput.value);
   if(availableRooms === "No Rooms Available") {
-    displayForgivingMessage(availableRooms);
+    return displayForgivingMessage(availableRooms);
   }
   if(selectRoomInput.value === 'All Rooms') {
     availableRooms.forEach(room => {
@@ -107,6 +124,7 @@ const renderAvailableRooms = () => {
           <p>Booking Date: ${dateInput.value}</p> 
           <p>Room Type: ${room.roomType}</p>
           <p>Room Number: ${room.number}</p>
+          <p>Room Cost: $${room.costPerNight.toFixed(2)}</p>
           <button class="book-button" id="${room.number}">Book now!</button>
         </div>
       </div>`;
@@ -114,7 +132,7 @@ const renderAvailableRooms = () => {
   } else {
     let filteredAvailableRooms = filterByRoomType(availableRooms, selectRoomInput.value);
     if(filteredAvailableRooms === "No Rooms Available For This Type") {
-      displayForgivingMessage(filteredAvailableRooms);
+      return displayForgivingMessage(filteredAvailableRooms);
     }
     filteredAvailableRooms.forEach(room => {
       availableRoomsSection.innerHTML += `
@@ -123,6 +141,7 @@ const renderAvailableRooms = () => {
           <p>Booking Date: ${dateInput.value}</p> 
           <p>Room Type: ${room.roomType}</p>
           <p>Room Number: ${room.number}</p>
+          <p>Room Cost: $${room.costPerNight.toFixed(2)}</p>
           <button class="book-button" id="${room.number}">Book now!</button>
         </div>
       </div>`;
@@ -154,7 +173,16 @@ const addHiddenClass = (elements) => {
   return elements.forEach(element => element.classList.add('hidden'));
 };
 
+const displayDashboard = () => {
+  addHiddenClass([loginPage])
+  removeHiddenClass([bookHereSection])
+  displayTotalSpent();
+  displayCustomerBookings();
+  displayCustomerName();
+}
+
 export {
   bookingsData,
-  displayCustomerBookings
+  displayCustomerBookings,
+  displayTotalSpent
 }
