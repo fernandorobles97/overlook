@@ -137,6 +137,27 @@ article {
   overflow: hidden;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form, .username-area, .password-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.username-input, .password-input {
+  margin-top: 1vh;
+}
+
+.username-area, .password-area {
+  font-size: 25px;
+  margin-bottom: 1.5vw;
+}
+
 .book-here-header {
   margin: 0;
 }
@@ -153,7 +174,7 @@ article {
   align-items: center;
 }
 
-.submit {
+.submit, .login-button {
   cursor: pointer;
   font-size: 15px;
   margin-top: 2.5vh;
@@ -167,7 +188,7 @@ article {
   opacity: 0.65;
 }
 
-.submit:hover {
+.submit:hover, .login-button:hover {
   opacity: 1.0;
 }
 
@@ -185,7 +206,6 @@ article {
   height: 3vh;
   width: 10vw;
 }
-
 
 .no-date-selected {
   color: black;
