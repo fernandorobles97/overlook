@@ -31,12 +31,16 @@
   <main>
     <article>
       <section class="login">
-        <h2>Login!</h2>
+        <h2 class="login-header">Login!</h2>
         <form class="login-form">
-          <label class="input-username" for="username-input">Enter Your Username</label>
-          <input type="text" class="username-input" id="username-input" placeholder="Username">
-          <label class="input-password" for="password-input">Enter Your Password</label>
-          <input type="text" class="password-input" id="password-input" placeholder="Password">
+          <div class="username-area">
+            <label class="input-username" for="username-input">Enter Your Username</label>
+            <input type="text" class="username-input" id="username-input" placeholder="Username">
+          </div>
+          <div class="password-area">
+            <label class="input-password" for="password-input">Enter Your Password</label>
+            <input type="text" class="password-input" id="password-input" placeholder="Password">
+          </div>
           <button class="login-button">Sign In</button>
         </form>
       </section>
