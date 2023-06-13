@@ -21,6 +21,8 @@ const selectRoomInput = document.querySelector('.select-room')
 const noDateSelected = document.querySelector(".no-date-selected")
 const availableRoomsSection = document.querySelector('.available-rooms')
 const bookingMessage = document.querySelector('.booking-message')
+const bookHereSection = document.querySelector('.book-here')
+const loginPage = document.querySelector('.login')
 const usernameInput = document.querySelector('.username-input')
 const passwordInput = document.querySelector('.password-input')
 const loginButton = document.querySelector('.login-button')
@@ -64,12 +66,9 @@ loginButton.addEventListener('click', (event) => {
   if(foundCustomer && passwordInput.value === 'overlook2021') {
     setCurrentCustomer(foundCustomer);
     displayDashboard();
-    displayTotalSpent();
-    displayCustomerBookings();
-    displayCustomerName();
   } else {
-    alert('please enter a Correct username and password')
-  }
+    return alert('please enter a Correct username and password')
+  } 
 })
 
 //Event Handlers/Functions
@@ -172,6 +171,14 @@ const removeHiddenClass = (elements) => {
 const addHiddenClass = (elements) => {
   return elements.forEach(element => element.classList.add('hidden'));
 };
+
+const displayDashboard = () => {
+  addHiddenClass([loginPage])
+  removeHiddenClass([bookHereSection])
+  displayTotalSpent();
+  displayCustomerBookings();
+  displayCustomerName();
+}
 
 export {
   bookingsData,
