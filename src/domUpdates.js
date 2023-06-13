@@ -26,6 +26,7 @@ const loginPage = document.querySelector('.login')
 const usernameInput = document.querySelector('.username-input')
 const passwordInput = document.querySelector('.password-input')
 const loginButton = document.querySelector('.login-button')
+const loginErrorMessage = document.querySelector('.login-error-message')
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -67,7 +68,7 @@ loginButton.addEventListener('click', (event) => {
     setCurrentCustomer(foundCustomer);
     displayDashboard();
   } else {
-    return alert('please enter a Correct username and password')
+    removeHiddenClass([loginErrorMessage])
   } 
 })
 
