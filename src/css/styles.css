@@ -162,6 +162,14 @@ article {
   margin: 0;
 }
 
+.book-here {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
 .options {
   font-size: 25px;
   width: 60vw;
