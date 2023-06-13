@@ -1,5 +1,5 @@
 //NOTE: Your DOM manipulation will occur in this file
-import { getBookings, getCustomers, getRooms, postBooking } from './apiCalls';
+import { getBookings, getCustomers, getRooms, getSingleCustomer, postBooking } from './apiCalls';
 import { filterByRoomType, findAvailableRooms, findBookings, findTotalSpent } from './customerUtils';
 import flatpickr from 'flatpickr';
 flatpickr(".date-input-box", {dateFormat: 'Y/m/d', allowInput: true});
@@ -21,6 +21,9 @@ const selectRoomInput = document.querySelector('.select-room')
 const noDateSelected = document.querySelector(".no-date-selected")
 const availableRoomsSection = document.querySelector('.available-rooms')
 const bookingMessage = document.querySelector('.booking-message')
+const usernameInput = document.querySelector('.username-input')
+const passwordInput = document.querySelector('.password-input')
+const loginButton = document.querySelector('.login-button')
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -28,10 +31,10 @@ window.addEventListener('load', () => {
     customersData = data[1].customers;
     roomsData = data[2].rooms;
     bookingsData = data[0].bookings;
-    setCurrentCustomer();
-    displayTotalSpent();
-    displayCustomerName();
-    displayCustomerBookings();
+    // setCurrentCustomer();
+    // displayTotalSpent();
+    // displayCustomerName();
+    // displayCustomerBookings();
   });
 });
 
@@ -54,9 +57,24 @@ bookHereForm.addEventListener('submit', event => {
   renderAvailableRooms();
 });
 
+loginButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  let customerID = usernameInput.value.split('customer')[1]
+  let foundCustomer = customersData.find(customer => customer.id === parseInt(customerID))
+  if(foundCustomer && passwordInput.value === 'overlook2021') {
+    setCurrentCustomer(foundCustomer);
+    displayDashboard();
+    displayTotalSpent();
+    displayCustomerBookings();
+    displayCustomerName();
+  } else {
+    alert('please enter a Correct username and password')
+  }
+})
+
 //Event Handlers/Functions
-const setCurrentCustomer = () => {
-  return currentCustomer = customersData[Math.floor(Math.random()*customersData.length)];
+const setCurrentCustomer = (current) => {
+  return currentCustomer = current;
 };
 
 const displayTotalSpent = () => {
