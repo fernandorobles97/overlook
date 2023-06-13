@@ -17,16 +17,16 @@ const userGreeting = document.querySelector('.user-greeting');
 const allBookings = document.querySelector('.all-bookings');
 const dateInput = document.querySelector(".date-input-box");
 const bookHereForm = document.querySelector('.book-here-form');
-const selectRoomInput = document.querySelector('.select-room')
-const noDateSelected = document.querySelector(".no-date-selected")
-const availableRoomsSection = document.querySelector('.available-rooms')
-const bookingMessage = document.querySelector('.booking-message')
-const bookHereSection = document.querySelector('.book-here')
-const loginPage = document.querySelector('.login')
-const usernameInput = document.querySelector('.username-input')
-const passwordInput = document.querySelector('.password-input')
-const loginButton = document.querySelector('.login-button')
-const loginErrorMessage = document.querySelector('.login-error-message')
+const selectRoomInput = document.querySelector('.select-room');
+const noDateSelected = document.querySelector(".no-date-selected");
+const availableRoomsSection = document.querySelector('.available-rooms');
+const bookingMessage = document.querySelector('.booking-message');
+const bookHereSection = document.querySelector('.book-here');
+const loginPage = document.querySelector('.login');
+const usernameInput = document.querySelector('.username-input');
+const passwordInput = document.querySelector('.password-input');
+const loginButton = document.querySelector('.login-button');
+const loginErrorMessage = document.querySelector('.login-error-message');
 
 //Event Listeners
 window.addEventListener('load', () => {
@@ -34,10 +34,6 @@ window.addEventListener('load', () => {
     customersData = data[1].customers;
     roomsData = data[2].rooms;
     bookingsData = data[0].bookings;
-    // setCurrentCustomer();
-    // displayTotalSpent();
-    // displayCustomerName();
-    // displayCustomerBookings();
   });
 });
 
@@ -62,15 +58,15 @@ bookHereForm.addEventListener('submit', event => {
 
 loginButton.addEventListener('click', (event) => {
   event.preventDefault();
-  let customerID = usernameInput.value.split('customer')[1]
-  let foundCustomer = customersData.find(customer => customer.id === parseInt(customerID))
-  if(foundCustomer && passwordInput.value === 'overlook2021') {
-    setCurrentCustomer(foundCustomer);
-    displayDashboard();
-  } else {
-    removeHiddenClass([loginErrorMessage])
-  } 
-})
+  customersData.forEach(customer => {
+    if(`customer${customer.id}` === usernameInput.value && passwordInput.value === "overlook2021") {
+      setCurrentCustomer(customer);
+      displayDashboard();
+    } else {
+      removeHiddenClass([loginErrorMessage]);
+    }
+  });
+});
 
 //Event Handlers/Functions
 const setCurrentCustomer = (current) => {
@@ -91,14 +87,17 @@ const findRoomType = (roomNumber) => {
     if(room.number === roomNumber) {
       return room;
     }
-  })
+  });
   return foundRoom.roomType.split(' ').map((word) => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
-}
+};
 
 const displayCustomerBookings = () => {
   let filteredBookings = findBookings(currentCustomer, bookingsData);
+  let sortedBookings = filteredBookings.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date)
+  })
   allBookings.innerHTML = '';
-  filteredBookings.forEach(booking => {
+  sortedBookings.forEach(booking => {
     allBookings.innerHTML += `
     <div class="reservation-wrapper">
           <div class="booking-item" tabindex="0">
@@ -106,7 +105,7 @@ const displayCustomerBookings = () => {
             <p>Room Type: ${findRoomType(booking.roomNumber)}</p>
           </div>
         </div>`
-  })
+  });
 };
 
 const renderAvailableRooms = () => {
@@ -127,7 +126,7 @@ const renderAvailableRooms = () => {
           <p>Room Cost: $${room.costPerNight.toFixed(2)}</p>
           <button class="book-button" id="${room.number}">Book now!</button>
         </div>
-      </div>`;
+      </div>`
     });
   } else {
     let filteredAvailableRooms = filterByRoomType(availableRooms, selectRoomInput.value);
@@ -153,7 +152,7 @@ const displayBookingMessage = () => {
   bookingMessage.innerHTML = "<p>The booking has been confirmed!</p><p>Your total spent has been updated, and you can find your latest booking under All Bookings.</p> <p>Thank you so much! Please continue browsing if you'd like to book another room!";
   addHiddenClass([availableRoomsSection]);
   removeHiddenClass([bookingMessage]);
-}
+};
 
 const displayForgivingMessage = (type) => {
   addHiddenClass([availableRoomsSection]);
@@ -174,15 +173,15 @@ const addHiddenClass = (elements) => {
 };
 
 const displayDashboard = () => {
-  addHiddenClass([loginPage])
-  removeHiddenClass([bookHereSection])
+  addHiddenClass([loginPage]);
+  removeHiddenClass([bookHereSection]);
   displayTotalSpent();
   displayCustomerBookings();
   displayCustomerName();
-}
+};
 
 export {
   bookingsData,
   displayCustomerBookings,
   displayTotalSpent
-}
+};
